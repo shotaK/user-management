@@ -23,8 +23,6 @@ const TabList: FC<PropsType<typeof TabListLib> & { children: ReactNode }> = ({
             color: primaryText,
             '&::after': {
               height: 3,
-              borderTopLeftRadius: 3,
-              borderTopRightRadius: 3,
               bgcolor: 'primary.500',
             },
           },

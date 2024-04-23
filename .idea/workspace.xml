@@ -5,33 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/hooks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/counter/Counter.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/counter/Counter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/counter/counterAPI.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/counter/counterSlice.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/counter/counterSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersActions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersSeedData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersSelectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/appState/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/sort-arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/table/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableFooter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableHead.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/date.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/sort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tabs/TabList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tabs/TabList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/DeletePromptBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableItems.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,17 +34,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2fSJArk8w2Gqf9IALowbclPhx5Z" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -74,7 +67,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/home/shota/Projects/TestGround/cordel/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "/home/shota/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/home/shota/Projects/TestGround/cordel/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -83,6 +76,7 @@
       <recent name="$PROJECT_DIR$/src/assets/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent" />
       <recent name="$PROJECT_DIR$/src/appState" />
     </key>
   </component>
@@ -94,7 +88,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713788404363</updated>
-      <workItem from="1713788405382" duration="14710000" />
+      <workItem from="1713788405382" duration="15118000" />
+      <workItem from="1713853961263" duration="13186000" />
     </task>
     <servers />
   </component>

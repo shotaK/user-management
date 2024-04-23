@@ -3,7 +3,7 @@ import { Box, Button, Typography } from '@mui/joy'
 import { highLight } from 'config/styles/colors'
 import binIcon from 'assets/icons/bin.svg'
 
-const DeletePromptBar: FC = () => {
+const DeletePromptBar: FC<{ numSelected: number }> = ({ numSelected }) => {
   return (
     <Box
       sx={{
@@ -20,7 +20,7 @@ const DeletePromptBar: FC = () => {
           alignItems: 'center',
         }}
       >
-        <Typography color='success'>2 rows selected</Typography>
+        <Typography color='success'>{numSelected} rows selected</Typography>
       </Box>
       <Box
         sx={{
