@@ -1,5 +1,8 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk, nanoid } from '@reduxjs/toolkit'
 import { fetchUsers } from 'appState/features/users/usersApi'
+import { AppDispatch } from 'appState/store'
+import { IUser } from 'appState/features/users/usersTypes'
+import { inviteUsers } from 'appState/features/users/usersSlice'
 
 export const fetchUsersAction = createAsyncThunk(
   'users/fetchUsers',
@@ -11,3 +14,20 @@ export const fetchUsersAction = createAsyncThunk(
     }
   },
 )
+
+export const inviteUsersAction =
+  ({ emails }: { emails: string[] }) =>
+  (dispatch: AppDispatch) => {
+    const users: IUser[] = emails.map((email) => {
+      return {
+        id: nanoid(8),
+        email,
+        active: false,
+        created: new Date().toISOString(),
+        name: '',
+        profileImgSrc: '',
+      }
+    })
+
+    dispatch(inviteUsers(users))
+  }

@@ -1,6 +1,6 @@
 import { ApiCycleState, apiStateDefaults } from 'appState/types'
 import { IUser } from 'appState/features/users/usersTypes'
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { fetchUsersAction } from 'appState/features/users/usersActions'
 
 interface UsersState {
@@ -23,17 +23,16 @@ export const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    setUsers: (
-      state,
-      action: { payload: { users: IUser[]; total: number } },
-    ) => {
-      const {
-        payload: { users, total },
-      } = action
-      state.users = {
-        list: users,
-        total,
-      }
+    inviteUsers: (state, action: PayloadAction<IUser[]>) => {
+      const { payload: users } = action
+      state.users.list = [...state.users.list, ...users]
+    },
+
+    deleteUsersByIds: (state, action: PayloadAction<string[]>) => {
+      const { payload: ids } = action
+      state.users.list = state.users.list.filter(
+        (user) => !ids.includes(user.id),
+      )
     },
   },
   extraReducers: (builder) => {
@@ -61,5 +60,7 @@ export const usersSlice = createSlice({
     })
   },
 })
+
+export const { inviteUsers, deleteUsersByIds } = usersSlice.actions
 
 export default usersSlice.reducer

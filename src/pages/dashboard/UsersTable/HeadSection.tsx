@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { Box, Typography } from '@mui/joy'
 import usersIcon from 'assets/icons/users.svg'
-import InviteUsersButton from 'pages/dashboard/UsersTable/InviteUsersButton'
+import InviteUsers from 'pages/dashboard/UsersTable/InviteUsers'
 
 const HeadSection: FC = () => {
   return (
@@ -13,7 +13,7 @@ const HeadSection: FC = () => {
         </Typography>
       </Box>
 
-      <InviteUsersButton />
+      <InviteUsers />
     </Box>
   )
 }

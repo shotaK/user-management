@@ -4,27 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersActions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersSeedData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersSelectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/appState/features/users/usersTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/appState/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/sort-arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/table/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableFooter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableHead.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/date.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/sort.ts" afterDir="false" />
+    <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="Users table implementation">
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/add-neutral.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/bin-neutral.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/invite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeleteUsersModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tabs/TabList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tabs/TabList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/DeletePromptBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableItems.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersSelectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersSelectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/HeadSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/HeadSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsersButton.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -89,11 +84,24 @@
       <option name="presentableId" value="Default" />
       <updated>1713788404363</updated>
       <workItem from="1713788405382" duration="15118000" />
-      <workItem from="1713853961263" duration="13186000" />
+      <workItem from="1713853961263" duration="17386000" />
     </task>
+    <task id="LOCAL-00001" summary="Users table implementation">
+      <option name="closed" value="true" />
+      <created>1713874478420</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713874478420</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Users table implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Users table implementation" />
   </component>
 </project>

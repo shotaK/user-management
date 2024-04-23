@@ -21,7 +21,7 @@ const TableContent: FC<{
 }> = ({ page, rowsPerPage, setPage, setRowsPerPage }) => {
   const [order, setOrder] = useState<TableOrder>('asc')
   const [orderBy, setOrderBy] = useState<keyof IUser>('name')
-  const [selected, setSelected] = useState<readonly string[]>([])
+  const [selected, setSelected] = useState<string[]>([])
 
   const { list: rows } = useAppSelector(usersSelector)
 
@@ -36,19 +36,19 @@ const TableContent: FC<{
 
   const handleSelectAllClick = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name)
+      const newSelected = rows.map((n) => n.id)
       setSelected(newSelected)
       return
     }
     setSelected([])
   }
 
-  const handleClick = (event: MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name)
-    let newSelected: readonly string[] = []
+  const handleClick = (event: MouseEvent<unknown>, id: string) => {
+    const selectedIndex = selected.indexOf(id)
+    let newSelected: string[] = []
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name)
+      newSelected = newSelected.concat(selected, id)
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1))
     } else if (selectedIndex === selected.length - 1) {
@@ -65,15 +65,13 @@ const TableContent: FC<{
 
   const isSelected = (name: string) => selected.indexOf(name) !== -1
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
-
   const numSelected = selected.length
 
   return (
     <Sheet variant='plain' sx={{ width: '100%' }}>
-      {numSelected > 0 && <DeletePromptBar numSelected={numSelected} />}
+      {numSelected > 0 && (
+        <DeletePromptBar selected={selected} setSelected={setSelected} />
+      )}
       <Table
         aria-labelledby='tableTitle'
         hoverRow
@@ -101,17 +99,16 @@ const TableContent: FC<{
         <tbody>
           {stableSort<IUser>(rows, getComparator(order, orderBy)).map(
             (row, index) => {
-              const isItemSelected = isSelected(row.name)
+              const isItemSelected = isSelected(row.id)
               const labelId = `enhanced-table-checkbox-${index}`
 
               return (
                 <tr
-                  onClick={(event) => handleClick(event, row.name)}
+                  onClick={(event) => handleClick(event, row.id)}
                   role='checkbox'
                   aria-checked={isItemSelected}
                   tabIndex={-1}
-                  key={row.name}
-                  // selected={isItemSelected}
+                  key={row.id}
                   style={
                     isItemSelected
                       ? ({
