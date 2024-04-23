@@ -1,5 +1,4 @@
-import { type FC, useMemo, useState } from 'react'
-import FormControl from '@mui/joy/FormControl'
+import { type FC, useMemo } from 'react'
 import FormLabel from '@mui/joy/FormLabel'
 import { Box, Button, IconButton, Input } from '@mui/joy'
 import deleteIcon from 'assets/icons/bin-neutral.svg'
@@ -8,8 +7,12 @@ import addIcon from 'assets/icons/add-neutral.svg'
 import { useAppDispatch } from 'appState/hooks'
 import { inviteUsersAction } from 'appState/features/users/usersActions'
 
-const InviteUsersForm: FC<{ closeModal: () => void }> = ({ closeModal }) => {
-  const [emailsList, setEmailsList] = useState<string[]>([''])
+const InviteUsersForm: FC<{
+  closeModal: () => void
+  emailsList: string[]
+  setEmailsList: (emails: string[]) => void
+  handleInviteUsers: () => void
+}> = ({ closeModal, emailsList, setEmailsList, handleInviteUsers }) => {
   const dispatch = useAppDispatch()
 
   const handleAddEmail = () => {
@@ -31,6 +34,7 @@ const InviteUsersForm: FC<{ closeModal: () => void }> = ({ closeModal }) => {
   const inviteUsers = () => {
     dispatch(inviteUsersAction({ emails: emailsList }))
     closeModal()
+    handleInviteUsers()
   }
 
   const anyEmailEmpty = useMemo(() => {
@@ -38,72 +42,75 @@ const InviteUsersForm: FC<{ closeModal: () => void }> = ({ closeModal }) => {
   }, [emailsList])
 
   return (
-    <form>
-      <FormControl>
-        <FormLabel>Email *</FormLabel>
-
-        {emailsList.map((email, index) => (
-          <Box key={index} sx={{ display: 'flex', gap: 2, mb: 2 }}>
-            <Input
-              type='email'
-              value={email}
-              placeholder={`Email ${index + 1}`}
-              onChange={(e) => {
-                updateEmail(index, e.target.value)
-              }}
-              sx={{ flexGrow: 1 }}
-            />
-            <IconButton
-              variant='outlined'
-              color={emailsList.length === 1 ? 'neutral' : 'danger'}
-              disabled={emailsList.length === 1}
-              onClick={() => {
-                removeEmail(index)
-              }}
-            >
-              <img
-                width={20}
-                src={emailsList.length === 1 ? deleteIcon : deleteActiveIcon}
-                alt='Delete'
-              />
-            </IconButton>
-          </Box>
-        ))}
-
+    <>
+      <form>
         <Box>
-          <Button
-            startDecorator={<img src={addIcon} alt='Add' />}
-            variant='outlined'
-            color='neutral'
-            sx={{ mb: 2 }}
-            onClick={handleAddEmail}
-          >
-            Add more
-          </Button>
-        </Box>
+          <FormLabel sx={{ mb: 2 }}>Email *</FormLabel>
 
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
-          <Button
-            variant='outlined'
-            color='neutral'
-            sx={{ mt: 2 }}
-            onClick={closeModal}
-          >
-            Cancel
-          </Button>
+          {emailsList.map((email, index) => (
+            <Box key={index} sx={{ display: 'flex', gap: 2, mb: 2 }}>
+              <Input
+                type='email'
+                value={email}
+                placeholder={`Email ${index + 1}`}
+                onChange={(e) => {
+                  updateEmail(index, e.target.value)
+                }}
+                sx={{ flexGrow: 1 }}
+              />
+              <IconButton
+                variant='outlined'
+                color={emailsList.length === 1 ? 'neutral' : 'danger'}
+                disabled={emailsList.length === 1}
+                onClick={() => {
+                  removeEmail(index)
+                }}
+              >
+                <img
+                  width={20}
+                  src={emailsList.length === 1 ? deleteIcon : deleteActiveIcon}
+                  alt='Delete'
+                />
+              </IconButton>
+            </Box>
+          ))}
 
-          <Button
-            variant='solid'
-            color='primary'
-            disabled={anyEmailEmpty}
-            sx={{ mt: 2 }}
-            onClick={inviteUsers}
-          >
-            Send invites {emailsList.length > 0 ? `(${emailsList.length})` : ''}
-          </Button>
+          <Box>
+            <Button
+              startDecorator={<img src={addIcon} alt='Add' />}
+              variant='outlined'
+              color='neutral'
+              sx={{ mb: 2 }}
+              onClick={handleAddEmail}
+            >
+              Add more
+            </Button>
+          </Box>
+
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+            <Button
+              variant='outlined'
+              color='neutral'
+              sx={{ mt: 2 }}
+              onClick={closeModal}
+            >
+              Cancel
+            </Button>
+
+            <Button
+              variant='solid'
+              color='primary'
+              disabled={anyEmailEmpty}
+              sx={{ mt: 2 }}
+              onClick={inviteUsers}
+            >
+              Send invites{' '}
+              {emailsList.length > 0 ? `(${emailsList.length})` : ''}
+            </Button>
+          </Box>
         </Box>
-      </FormControl>
-    </form>
+      </form>
+    </>
   )
 }
 

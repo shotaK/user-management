@@ -4,22 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="Users table implementation">
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/add-neutral.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/bin-neutral.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/invite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeleteUsersModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="Users table actions implementation">
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/check-success.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/dots-menu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/edit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/user-lock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SnackbarHideDuration/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/UserEditModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersSelectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersSelectors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/HeadSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/HeadSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsersButton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/styles/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/styles/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableHead.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/home/shota/Projects/TestGround/cordel/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
     "ts.external.directory.path": "/home/shota/Projects/TestGround/cordel/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -84,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713788404363</updated>
       <workItem from="1713788405382" duration="15118000" />
-      <workItem from="1713853961263" duration="17386000" />
+      <workItem from="1713853961263" duration="24826000" />
     </task>
     <task id="LOCAL-00001" summary="Users table implementation">
       <option name="closed" value="true" />
@@ -94,14 +96,25 @@
       <option name="project" value="LOCAL" />
       <updated>1713874478420</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Users table actions implementation">
+      <option name="closed" value="true" />
+      <created>1713878723891</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713878723891</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Users table implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Users table implementation" />
+    <MESSAGE value="Users table actions implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Users table actions implementation" />
   </component>
 </project>

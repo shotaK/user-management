@@ -34,6 +34,13 @@ export const usersSlice = createSlice({
         (user) => !ids.includes(user.id),
       )
     },
+
+    updateUserById: (state, action: PayloadAction<Partial<IUser>>) => {
+      const { payload: user } = action
+      state.users.list = state.users.list.map((u) =>
+        u.id === user.id ? { ...u, ...user } : u,
+      )
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsersAction.fulfilled, (state, action) => {
@@ -61,6 +68,7 @@ export const usersSlice = createSlice({
   },
 })
 
-export const { inviteUsers, deleteUsersByIds } = usersSlice.actions
+export const { inviteUsers, deleteUsersByIds, updateUserById } =
+  usersSlice.actions
 
 export default usersSlice.reducer

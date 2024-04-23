@@ -1,21 +1,16 @@
-import { type FC } from 'react'
-import * as React from 'react'
+import { MouseEvent, ChangeEvent, type FC } from 'react'
 import { IUser } from 'appState/features/users/usersTypes'
 import { TableOrder } from 'components/table'
 import Checkbox from '@mui/joy/Checkbox'
 import Link from '@mui/joy/Link'
 import Box from '@mui/joy/Box'
-import arrowDownwardIcon from 'assets/icons/arrow-downward.svg'
 import arrowSortIcon from 'assets/icons/sort-arrow.svg'
 import { visuallyHidden } from '@mui/utils'
 
 interface TableHeadProps {
   numSelected: number
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: keyof IUser,
-  ) => void
-  onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onRequestSort: (event: MouseEvent<unknown>, property: keyof IUser) => void
+  onSelectAllClick: (event: ChangeEvent<HTMLInputElement>) => void
   order: TableOrder
   orderBy: string
   rowCount: number
@@ -25,37 +20,37 @@ interface HeadCell {
   disablePadding: boolean
   id: keyof IUser | string
   label?: string
-  numeric: boolean
+  sortable?: boolean
 }
 
 export const headCells: readonly HeadCell[] = [
   {
     id: 'name',
-    numeric: false,
+    sortable: true,
     disablePadding: true,
     label: 'Name',
   },
   {
     id: 'email',
-    numeric: false,
+    sortable: true,
     disablePadding: false,
     label: 'Email',
   },
   {
     id: 'created',
-    numeric: true,
+    sortable: true,
     disablePadding: false,
     label: 'Created on',
   },
   {
     id: 'status',
-    numeric: false,
+    sortable: false,
     disablePadding: false,
     label: 'Status',
   },
   {
     id: 'actions',
-    numeric: true,
+    sortable: false,
     disablePadding: false,
   },
 ]
@@ -69,7 +64,7 @@ const TableHead: FC<TableHeadProps> = ({
   onRequestSort,
 }) => {
   const createSortHandler =
-    (property: keyof IUser) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof IUser) => (event: MouseEvent<unknown>) => {
       onRequestSort(event, property)
     }
 
@@ -83,7 +78,7 @@ const TableHead: FC<TableHeadProps> = ({
             onChange={onSelectAllClick}
             slotProps={{
               input: {
-                'aria-label': 'select all desserts',
+                'aria-label': 'select all',
               },
             }}
             sx={{ verticalAlign: 'sub' }}
@@ -100,7 +95,7 @@ const TableHead: FC<TableHeadProps> = ({
                   : undefined
               }
             >
-              {headCell.id === 'actions' ? (
+              {headCell.id === 'actions' || !headCell?.sortable ? (
                 headCell.label
               ) : (
                 <Link
@@ -111,9 +106,9 @@ const TableHead: FC<TableHeadProps> = ({
                   onClick={createSortHandler(headCell.id as keyof IUser)}
                   fontWeight='lg'
                   startDecorator={
-                    headCell.numeric && active ? (
+                    active ? (
                       <Box>
-                        <img src={arrowSortIcon} />
+                        <img src={arrowSortIcon} alt='Sort' />
                       </Box>
                     ) : null
                   }

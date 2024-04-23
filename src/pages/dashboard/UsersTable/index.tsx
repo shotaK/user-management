@@ -13,6 +13,7 @@ const UsersTable: FC = () => {
   const { isLoading } = useAppSelector(usersGetApiSelector)
   const [page, setPage] = useState(1)
   const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     dispatch(fetchUsersAction({ page, limit: rowsPerPage }))
@@ -37,12 +38,13 @@ const UsersTable: FC = () => {
         </Box>
       ) : (
         <>
-          <TableActions />
+          <TableActions setSearchTerm={setSearchTerm} />
           <TableContent
             page={page}
             rowsPerPage={rowsPerPage}
             setPage={setPage}
             setRowsPerPage={setRowsPerPage}
+            searchTerm={searchTerm}
           />
         </>
       )}

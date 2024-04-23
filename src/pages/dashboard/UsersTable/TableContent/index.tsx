@@ -7,18 +7,27 @@ import TableHead from 'pages/dashboard/UsersTable/TableContent/TableHead'
 import { getComparator, stableSort } from 'utils/sort'
 import DeletePromptBar from 'pages/dashboard/UsersTable/TableContent/DeletePromptBar'
 import TableFooter from 'pages/dashboard/UsersTable/TableContent/TableFooter'
-import { ChangeEvent, useState, MouseEvent, CSSProperties, FC } from 'react'
+import {
+  ChangeEvent,
+  CSSProperties,
+  FC,
+  MouseEvent,
+  useMemo,
+  useState,
+} from 'react'
 import { useAppSelector } from 'appState/hooks'
 import { usersSelector } from 'appState/features/users/usersSelectors'
 import { formatDate } from 'utils/date'
 import { Chip } from '@mui/joy'
+import EntityMenu from 'pages/dashboard/UsersTable/EntityMenu'
 
 const TableContent: FC<{
   page: number
   rowsPerPage: number
   setPage: (page: number) => void
   setRowsPerPage: (rowsPerPage: number) => void
-}> = ({ page, rowsPerPage, setPage, setRowsPerPage }) => {
+  searchTerm: string
+}> = ({ page, rowsPerPage, setPage, setRowsPerPage, searchTerm }) => {
   const [order, setOrder] = useState<TableOrder>('asc')
   const [orderBy, setOrderBy] = useState<keyof IUser>('name')
   const [selected, setSelected] = useState<string[]>([])
@@ -67,6 +76,16 @@ const TableContent: FC<{
 
   const numSelected = selected.length
 
+  const usersSearchTermFiltered = useMemo(() => {
+    return !searchTerm
+      ? rows
+      : rows.filter(
+          (row) =>
+            row.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            row.email.toLowerCase().includes(searchTerm.toLowerCase()),
+        )
+  }, [rows, searchTerm])
+
   return (
     <Sheet variant='plain' sx={{ width: '100%' }}>
       {numSelected > 0 && (
@@ -84,6 +103,9 @@ const TableContent: FC<{
             width: '40px',
           },
           '& thead th:nth-child(2)': {
+            width: '25%',
+          },
+          '& thead th:nth-child(3)': {
             width: '30%',
           },
         }}
@@ -97,64 +119,67 @@ const TableContent: FC<{
           rowCount={rows.length}
         />
         <tbody>
-          {stableSort<IUser>(rows, getComparator(order, orderBy)).map(
-            (row, index) => {
-              const isItemSelected = isSelected(row.id)
-              const labelId = `enhanced-table-checkbox-${index}`
+          {stableSort<IUser>(
+            usersSearchTermFiltered,
+            getComparator(order, orderBy),
+          ).map((row, index) => {
+            const isItemSelected = isSelected(row.id)
+            const labelId = `enhanced-table-checkbox-${index}`
 
-              return (
-                <tr
-                  onClick={(event) => handleClick(event, row.id)}
-                  role='checkbox'
-                  aria-checked={isItemSelected}
-                  tabIndex={-1}
-                  key={row.id}
-                  style={
-                    isItemSelected
-                      ? ({
-                          '--TableCell-dataBackground':
-                            'var(--TableCell-selectedBackground)',
-                          '--TableCell-headBackground':
-                            'var(--TableCell-selectedBackground)',
-                        } as CSSProperties)
-                      : {}
-                  }
-                >
-                  <th scope='row'>
-                    <Checkbox
-                      checked={isItemSelected}
-                      slotProps={{
-                        input: {
-                          'aria-labelledby': labelId,
-                        },
-                      }}
-                      sx={{ verticalAlign: 'top' }}
-                    />
-                  </th>
-                  <th id={labelId} scope='row'>
-                    {row.name}
-                  </th>
-                  <td>{row.email}</td>
-                  <td>{formatDate(row.created)}</td>
-                  <td>
-                    {row.active ? (
-                      <Chip color='success' variant='soft'>
-                        active
-                      </Chip>
-                    ) : (
-                      <Chip color='warning' variant='soft'>
-                        invited
-                      </Chip>
-                    )}
-                  </td>
-                  <td></td>
-                </tr>
-              )
-            },
-          )}
+            return (
+              <tr
+                onClick={(event) => handleClick(event, row.id)}
+                role='checkbox'
+                aria-checked={isItemSelected}
+                tabIndex={-1}
+                key={row.id}
+                style={
+                  isItemSelected
+                    ? ({
+                        '--TableCell-dataBackground':
+                          'var(--TableCell-selectedBackground)',
+                        '--TableCell-headBackground':
+                          'var(--TableCell-selectedBackground)',
+                      } as CSSProperties)
+                    : {}
+                }
+              >
+                <th scope='row'>
+                  <Checkbox
+                    checked={isItemSelected}
+                    slotProps={{
+                      input: {
+                        'aria-labelledby': labelId,
+                      },
+                    }}
+                    sx={{ verticalAlign: 'top' }}
+                  />
+                </th>
+                <th id={labelId} scope='row'>
+                  {row.name}
+                </th>
+                <td>{row.email}</td>
+                <td>{formatDate(row.created)}</td>
+                <td>
+                  {row.active ? (
+                    <Chip color='success' variant='soft'>
+                      active
+                    </Chip>
+                  ) : (
+                    <Chip color='warning' variant='soft'>
+                      invited
+                    </Chip>
+                  )}
+                </td>
+                <td>
+                  <EntityMenu user={row} />
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
         <TableFooter
-          rows={rows}
+          rows={usersSearchTermFiltered}
           setPage={setPage}
           setRowsPerPage={setRowsPerPage}
           page={page}

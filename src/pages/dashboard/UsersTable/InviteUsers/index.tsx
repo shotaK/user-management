@@ -2,12 +2,16 @@ import { type FC, useState } from 'react'
 import { Box, Button, Modal, ModalClose, Sheet, Typography } from '@mui/joy'
 import inviteIcon from 'assets/icons/invite.svg'
 import InviteUsersForm from 'pages/dashboard/UsersTable/InviteUsers/InviteUsersForm'
+import SnackbarHideDuration from 'components/SnackbarHideDuration'
 
-const Index: FC = () => {
+const InviteUsers: FC = () => {
   const [open, setOpen] = useState<boolean>(false)
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
+  const [emailsList, setEmailsList] = useState<string[]>([''])
 
   const closeModal = () => {
     setOpen(false)
+    setEmailsList([''])
   }
 
   return (
@@ -16,7 +20,7 @@ const Index: FC = () => {
 
       <Modal
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={closeModal}
         aria-labelledby='invite-users'
         aria-describedby='invite-users-to-portal'
         sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
@@ -46,11 +50,26 @@ const Index: FC = () => {
               Invite users
             </Typography>
           </Box>
-          <InviteUsersForm closeModal={closeModal} />
+          <InviteUsersForm
+            emailsList={emailsList}
+            setEmailsList={setEmailsList}
+            closeModal={closeModal}
+            handleInviteUsers={() => setSnackbarOpen(true)}
+          />
         </Sheet>
       </Modal>
+
+      <SnackbarHideDuration
+        text={`${emailsList.length} users invited`}
+        open={snackbarOpen}
+        duration={1000}
+        color='success'
+        horizontal='center'
+        vertical='top'
+        setOpen={setSnackbarOpen}
+      />
     </div>
   )
 }
 
-export default Index
+export default InviteUsers

@@ -5,7 +5,9 @@ import columns from 'assets/icons/columns.svg'
 import density from 'assets/icons/density.svg'
 import Search from 'pages/dashboard/UsersTable/TableActions/Search'
 
-const TableActions: FC = () => {
+const TableActions: FC<{
+  setSearchTerm: (term: string) => void
+}> = ({ setSearchTerm }) => {
   return (
     <Box
       sx={{
@@ -36,7 +38,7 @@ const TableActions: FC = () => {
           Density
         </Button>
       </Box>
-      <Search />
+      <Search setSearchTerm={setSearchTerm} />
     </Box>
   )
 }
