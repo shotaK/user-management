@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="Users table actions implementation">
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/check-success.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/dots-menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/edit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/user-lock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SnackbarHideDuration/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/UserEditModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/styles/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/styles/colors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/Search.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableActions/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/TableHead.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/Counter.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/Counter.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/counterAPI.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/counterSlice.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/counterSlice.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713788404363</updated>
       <workItem from="1713788405382" duration="15118000" />
-      <workItem from="1713853961263" duration="24826000" />
+      <workItem from="1713853961263" duration="25420000" />
     </task>
     <task id="LOCAL-00001" summary="Users table implementation">
       <option name="closed" value="true" />
@@ -104,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713878723891</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Users table actions implementation">
+      <option name="closed" value="true" />
+      <created>1713889140125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713889140125</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
