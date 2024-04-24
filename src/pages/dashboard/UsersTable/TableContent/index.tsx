@@ -20,7 +20,6 @@ import { formatDate } from 'utils/date'
 import { Box, Chip } from '@mui/joy'
 import EntityMenu from 'pages/dashboard/UsersTable/EntityMenu'
 import { selectionHandler } from 'components/table/helpers'
-import SnackbarHideDuration from 'components/snackbarHideDuration'
 import DeleteUsersModal from 'pages/dashboard/UsersTable/TableContent/DeleteUsersModal'
 
 const TableContent: FC<{
@@ -190,17 +189,7 @@ const TableContent: FC<{
         setOpen={setDeleteModalOpen}
         setSelected={setSelected}
         setDeleteModalSnackbarOpen={setDeleteModalSnackbarOpen}
-      />
-      <SnackbarHideDuration
-        text={`${deleteModalSnackbarOpen.numOfUsers} users deleted`}
-        open={deleteModalSnackbarOpen.open}
-        duration={750}
-        color='danger'
-        horizontal='center'
-        vertical='top'
-        setOpen={() => {
-          setDeleteModalSnackbarOpen({ ...deleteModalSnackbarOpen, open: false })
-        }}
+        deleteModalSnackbarOpen={deleteModalSnackbarOpen}
       />
     </>
   )

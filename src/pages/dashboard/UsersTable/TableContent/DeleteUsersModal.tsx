@@ -4,12 +4,17 @@ import binIcon from 'assets/icons/bin-neutral.svg'
 import { usersByIdsSelector } from 'appState/features/users/usersSelectors'
 import { useAppDispatch, useAppSelector } from 'appState/hooks'
 import { deleteUsersByIds } from 'appState/features/users/usersSlice'
+import SnackbarHideDuration from 'components/snackbarHideDuration'
 
 const DeleteUsersModal: FC<{
   open: boolean
   setOpen: (open: boolean) => void
   selected: string[]
   setSelected: (selected: string[]) => void
+  deleteModalSnackbarOpen: {
+    numOfUsers: number
+    open: boolean
+  }
   setDeleteModalSnackbarOpen: ({
     numOfUsers,
     open,
@@ -17,7 +22,14 @@ const DeleteUsersModal: FC<{
     numOfUsers: number
     open: boolean
   }) => void
-}> = ({ open, setOpen, selected, setSelected, setDeleteModalSnackbarOpen }) => {
+}> = ({
+  open,
+  setOpen,
+  selected,
+  setSelected,
+  setDeleteModalSnackbarOpen,
+  deleteModalSnackbarOpen,
+}) => {
   const dispatch = useAppDispatch()
   const numberOfUsers = selected.length
 
@@ -27,7 +39,6 @@ const DeleteUsersModal: FC<{
     setDeleteModalSnackbarOpen({ numOfUsers: numberOfUsers, open: true })
     setSelected([])
   }
-
 
   const users = useAppSelector((state) => usersByIdsSelector(state, selected))
 
@@ -99,6 +110,20 @@ const DeleteUsersModal: FC<{
           </Box>
         </Sheet>
       </Modal>
+      <SnackbarHideDuration
+        text={`${deleteModalSnackbarOpen.numOfUsers} users deleted`}
+        open={deleteModalSnackbarOpen.open}
+        duration={750}
+        color='danger'
+        horizontal='center'
+        vertical='top'
+        setOpen={() => {
+          setDeleteModalSnackbarOpen({
+            ...deleteModalSnackbarOpen,
+            open: false,
+          })
+        }}
+      />
     </>
   )
 }
