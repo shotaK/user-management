@@ -6,11 +6,15 @@ import SnackbarHideDuration from 'components/snackbarHideDuration'
 
 const InviteUsers: FC = () => {
   const [open, setOpen] = useState<boolean>(false)
-  const [snackbarOpen, setSnackbarOpen] = useState(false)
+  const [snackbarOpen, setSnackbarOpen] = useState({
+    open: false,
+    numOfUsers: 0,
+  })
   const [emailsList, setEmailsList] = useState<string[]>([''])
 
   const closeModal = () => {
     setOpen(false)
+    setEmailsList([''])
   }
 
   return (
@@ -53,20 +57,23 @@ const InviteUsers: FC = () => {
             emailsList={emailsList}
             setEmailsList={setEmailsList}
             closeModal={closeModal}
-            handleInviteUsers={() => setSnackbarOpen(true)}
+            handleInviteUsers={() => {
+              setSnackbarOpen({ open: true, numOfUsers: emailsList.length })
+            }}
           />
         </Sheet>
       </Modal>
 
       <SnackbarHideDuration
-        text={`${emailsList.length} users invited`}
-        open={snackbarOpen}
+        text={`${snackbarOpen.numOfUsers} users invited`}
+        open={snackbarOpen.open}
         duration={1000}
         color='success'
         horizontal='center'
         vertical='top'
-        setOpen={setSnackbarOpen}
-        onClose={() => setEmailsList([''])}
+        setOpen={() => {
+          setSnackbarOpen({ ...snackbarOpen, open: false })
+        }}
       />
     </div>
   )
