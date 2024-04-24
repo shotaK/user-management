@@ -8,7 +8,7 @@ import {
   Sheet,
   Typography,
 } from '@mui/joy'
-import binIcon from 'assets/icons/bin-neutral.svg'
+import editIcon from 'assets/icons/edit.svg'
 import { useAppDispatch } from 'appState/hooks'
 import { IUser } from 'appState/features/users/usersTypes'
 import FormControl from '@mui/joy/FormControl'
@@ -64,7 +64,7 @@ const UserEditModal: FC<{
             >
               <ModalClose />
               <Typography
-                startDecorator={<img src={binIcon} alt='Delete users' />}
+                startDecorator={<img src={editIcon} alt='Edit user' />}
                 level='body-md'
                 component='h2'
               >
