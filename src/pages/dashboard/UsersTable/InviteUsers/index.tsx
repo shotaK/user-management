@@ -2,7 +2,7 @@ import { type FC, useState } from 'react'
 import { Box, Button, Modal, ModalClose, Sheet, Typography } from '@mui/joy'
 import inviteIcon from 'assets/icons/invite.svg'
 import InviteUsersForm from 'pages/dashboard/UsersTable/InviteUsers/InviteUsersForm'
-import SnackbarHideDuration from 'components/SnackbarHideDuration'
+import SnackbarHideDuration from 'components/snackbarHideDuration'
 
 const InviteUsers: FC = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -11,7 +11,6 @@ const InviteUsers: FC = () => {
 
   const closeModal = () => {
     setOpen(false)
-    setEmailsList([''])
   }
 
   return (
@@ -67,6 +66,7 @@ const InviteUsers: FC = () => {
         horizontal='center'
         vertical='top'
         setOpen={setSnackbarOpen}
+        onClose={() => setEmailsList([''])}
       />
     </div>
   )

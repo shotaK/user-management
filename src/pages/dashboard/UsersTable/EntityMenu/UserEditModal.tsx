@@ -14,7 +14,7 @@ import { IUser } from 'appState/features/users/usersTypes'
 import FormControl from '@mui/joy/FormControl'
 import FormLabel from '@mui/joy/FormLabel'
 import { updateUserById } from 'appState/features/users/usersSlice'
-import SnackbarHideDuration from 'components/SnackbarHideDuration'
+import SnackbarHideDuration from 'components/snackbarHideDuration'
 
 const UserEditModal: FC<{
   open: boolean

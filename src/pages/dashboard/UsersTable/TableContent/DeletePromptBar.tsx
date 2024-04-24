@@ -2,14 +2,12 @@ import { type FC, useState } from 'react'
 import { Box, Button, Typography } from '@mui/joy'
 import { highLight } from 'config/styles/colors'
 import binIcon from 'assets/icons/bin.svg'
-import DeleteUsersModal from 'pages/dashboard/UsersTable/TableContent/DeleteUsersModal'
 
 const DeletePromptBar: FC<{
+  setDeleteModalOpen: (open: boolean) => void
   setSelected: (selected: string[]) => void
   selected: string[]
-}> = ({ selected, setSelected }) => {
-  const [open, setOpen] = useState<boolean>(false)
-
+}> = ({ selected, setSelected, setDeleteModalOpen }) => {
   return (
     <>
       <Box
@@ -41,7 +39,7 @@ const DeletePromptBar: FC<{
             variant='soft'
             color='danger'
             startDecorator={<img src={binIcon} alt='Delete' />}
-            onClick={() => setOpen(true)}
+            onClick={() => setDeleteModalOpen(true)}
           >
             Delete
           </Button>
@@ -56,13 +54,6 @@ const DeletePromptBar: FC<{
           </Button>
         </Box>
       </Box>
-
-      <DeleteUsersModal
-        selected={selected}
-        open={open}
-        setOpen={setOpen}
-        setSelected={setSelected}
-      />
     </>
   )
 }

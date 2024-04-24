@@ -15,7 +15,7 @@ export function getComparator<Key extends keyof any>(
   orderBy: Key,
 ): (
   a: { [key in Key]: string | boolean },
-  b: { [key in Key]: string | boolean},
+  b: { [key in Key]: string | boolean },
 ) => number {
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)

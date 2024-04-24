@@ -7,7 +7,7 @@ export const usersSeedData: IUser[] = [
     email: 'john.doe@example.com',
     created: '2024-04-23T08:00:00Z',
     active: true,
-    profileImgSrc: 'https://randomuser.me/api/portraits/men/1.jpg',
+    profileImgSrc: 'Image.png',
   },
   {
     id: '2',
@@ -15,7 +15,7 @@ export const usersSeedData: IUser[] = [
     email: 'jane.smith@example.com',
     created: '2024-04-22T10:30:00Z',
     active: true,
-    profileImgSrc: 'https://randomuser.me/api/portraits/women/2.jpg',
+    profileImgSrc: '',
   },
   {
     id: '3',
@@ -23,7 +23,7 @@ export const usersSeedData: IUser[] = [
     email: 'michael.johnson@example.com',
     created: '2024-04-21T15:45:00Z',
     active: false,
-    profileImgSrc: 'https://randomuser.me/api/portraits/men/3.jpg',
+    profileImgSrc: 'Image-2.png',
   },
   {
     id: '4',
@@ -31,7 +31,7 @@ export const usersSeedData: IUser[] = [
     email: 'emily.brown@example.com',
     created: '2024-04-20T12:20:00Z',
     active: true,
-    profileImgSrc: 'https://randomuser.me/api/portraits/women/4.jpg',
+    profileImgSrc: '',
   },
   {
     id: '5',
@@ -39,7 +39,7 @@ export const usersSeedData: IUser[] = [
     email: 'david.wilson@example.com',
     created: '2024-04-19T09:10:00Z',
     active: false,
-    profileImgSrc: 'https://randomuser.me/api/portraits/men/5.jpg',
+    profileImgSrc: '',
   },
   {
     id: '6',
@@ -47,7 +47,7 @@ export const usersSeedData: IUser[] = [
     email: 'mjordan23@fly.com',
     created: '2024-04-23T00:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/jordan.png',
+    profileImgSrc: 'Image-3.png',
   },
   {
     id: '7',
@@ -55,7 +55,7 @@ export const usersSeedData: IUser[] = [
     email: 'serena.champ@tennis.org',
     created: '2024-04-22T15:30:00.000Z',
     active: false,
-    profileImgSrc: 'https://example.com/images/serena.jpg',
+    profileImgSrc: '',
   },
   {
     id: '8',
@@ -63,7 +63,7 @@ export const usersSeedData: IUser[] = [
     email: 'genius@relativity.com',
     created: '2024-04-21T10:10:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/einstein.png',
+    profileImgSrc: '',
   },
   {
     id: '9',
@@ -71,7 +71,7 @@ export const usersSeedData: IUser[] = [
     email: 'madame.science@discovery.ac',
     created: '2024-04-18T12:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/curie.jpg',
+    profileImgSrc: '',
   },
   {
     id: '10',
@@ -79,7 +79,7 @@ export const usersSeedData: IUser[] = [
     email: 'renaissance.man@art.it',
     created: '2024-04-17T08:45:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/davinci.png',
+    profileImgSrc: '',
   },
   {
     id: '11',
@@ -87,7 +87,7 @@ export const usersSeedData: IUser[] = [
     email: 'black.holes@cosmos.uk',
     created: '2024-04-16T17:20:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/hawking.jpg',
+    profileImgSrc: '',
   },
   {
     id: '12',
@@ -95,7 +95,7 @@ export const usersSeedData: IUser[] = [
     email: 'artista.mx@surrealism.com',
     created: '2024-04-15T09:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/kahlo.jpg',
+    profileImgSrc: '',
   },
   {
     id: '13',
@@ -103,7 +103,7 @@ export const usersSeedData: IUser[] = [
     email: 'freedom.fighter@southafrica.gov',
     created: '2024-04-14T14:15:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/mandela.jpg',
+    profileImgSrc: '',
   },
   {
     id: '14',
@@ -111,7 +111,7 @@ export const usersSeedData: IUser[] = [
     email: 'tidying.expert@japan.com',
     created: '2024-04-13T06:30:00.000Z',
     active: false,
-    profileImgSrc: 'https://example.com/images/kondo.jpg',
+    profileImgSrc: '',
   },
   {
     id: '15',
@@ -119,7 +119,7 @@ export const usersSeedData: IUser[] = [
     email: 'maestro@music.at',
     created: '2024-04-12T18:45:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/mozart.jpg',
+    profileImgSrc: '',
   },
   {
     id: '16',
@@ -127,7 +127,7 @@ export const usersSeedData: IUser[] = [
     email: 'bard@literature.uk',
     created: '2024-04-11T00:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/shakespeare.jpg',
+    profileImgSrc: '',
   },
   {
     id: '17',
@@ -135,7 +135,7 @@ export const usersSeedData: IUser[] = [
     email: 'mathematician@germany.edu',
     created: '2024-04-10T12:30:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/noether.jpg',
+    profileImgSrc: '',
   },
   {
     id: '18',
@@ -143,7 +143,7 @@ export const usersSeedData: IUser[] = [
     email: 'starry.night@art.nl',
     created: '2024-04-09T08:15:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/vangogh.jpg',
+    profileImgSrc: '',
   },
   {
     id: '19',
@@ -151,7 +151,7 @@ export const usersSeedData: IUser[] = [
     email: 'evolution@science.uk',
     created: '2024-04-08T19:00:00.000Z',
     active: false,
-    profileImgSrc: 'https://example.com/images/darwin.jpg',
+    profileImgSrc: '',
   },
   {
     id: '20',
@@ -159,7 +159,7 @@ export const usersSeedData: IUser[] = [
     email: 'enigma@computing.uk',
     created: '2024-04-07T07:45:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/turing.jpg',
+    profileImgSrc: '',
   },
   {
     id: '21',
@@ -167,7 +167,7 @@ export const usersSeedData: IUser[] = [
     email: 'symphony@music.de',
     created: '2024-04-05T10:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/beethoven.jpg',
+    profileImgSrc: '',
   },
   {
     id: '22',
@@ -175,7 +175,7 @@ export const usersSeedData: IUser[] = [
     email: 'philosopher@greece.edu',
     created: '2024-04-03T18:45:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/aristotle.jpg',
+    profileImgSrc: '',
   },
   {
     id: '23',
@@ -183,7 +183,7 @@ export const usersSeedData: IUser[] = [
     email: 'wisdom@china.cn',
     created: '2024-04-02T00:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/confucius.jpg',
+    profileImgSrc: '',
   },
   {
     id: '24',
@@ -191,7 +191,7 @@ export const usersSeedData: IUser[] = [
     email: 'academy@greece.edu',
     created: '2024-04-01T12:30:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/plato.jpg',
+    profileImgSrc: '',
   },
   {
     id: '25',
@@ -199,7 +199,7 @@ export const usersSeedData: IUser[] = [
     email: 'innovator@science.us',
     created: '2024-03-31T08:15:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/tesla.jpg',
+    profileImgSrc: '',
   },
   {
     id: '26',
@@ -207,7 +207,7 @@ export const usersSeedData: IUser[] = [
     email: 'queen@france.gov',
     created: '2024-03-29T07:45:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/marieantoinette.jpg',
+    profileImgSrc: '',
   },
   {
     id: '27',
@@ -215,7 +215,7 @@ export const usersSeedData: IUser[] = [
     email: 'astronomer@italy.edu',
     created: '2024-03-28T15:30:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/galilei.jpg',
+    profileImgSrc: '',
   },
   {
     id: '28',
@@ -223,7 +223,7 @@ export const usersSeedData: IUser[] = [
     email: 'pride.prejudice@literature.uk',
     created: '2024-03-27T10:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/austen.jpg',
+    profileImgSrc: '',
   },
   {
     id: '29',
@@ -231,7 +231,7 @@ export const usersSeedData: IUser[] = [
     email: 'horror.master@writing.com',
     created: '2024-03-26T06:15:00.000Z',
     active: false,
-    profileImgSrc: 'https://example.com/images/king.jpg',
+    profileImgSrc: '',
   },
   {
     id: '30',
@@ -239,7 +239,7 @@ export const usersSeedData: IUser[] = [
     email: 'mystery.queen@literature.uk',
     created: '2024-03-25T18:45:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/christie.jpg',
+    profileImgSrc: '',
   },
   {
     id: '31',
@@ -247,7 +247,7 @@ export const usersSeedData: IUser[] = [
     email: 'romantic.poet@literature.uk',
     created: '2024-03-24T00:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/wordsworth.jpg',
+    profileImgSrc: '',
   },
   {
     id: '32',
@@ -255,7 +255,7 @@ export const usersSeedData: IUser[] = [
     email: 'scifi.writer@literature.us',
     created: '2024-03-22T08:15:00.000Z',
     active: false,
-    profileImgSrc: 'https://example.com/images/asimov.jpg',
+    profileImgSrc: '',
   },
   {
     id: '33',
@@ -263,7 +263,7 @@ export const usersSeedData: IUser[] = [
     email: 'poet.activist@literature.us',
     created: '2024-03-21T19:00:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/angelou.jpg',
+    profileImgSrc: '',
   },
   {
     id: '34',
@@ -271,6 +271,6 @@ export const usersSeedData: IUser[] = [
     email: 'artist@spain.eu',
     created: '2024-03-19T15:30:00.000Z',
     active: true,
-    profileImgSrc: 'https://example.com/images/picasso.jpg',
+    profileImgSrc: '',
   },
 ]

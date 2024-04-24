@@ -14,7 +14,10 @@ import binIcon from 'assets/icons/bin.svg'
 import UserEditModal from 'pages/dashboard/UsersTable/EntityMenu/UserEditModal'
 import { IUser } from 'appState/features/users/usersTypes'
 
-const EntityMenu: FC<{ user: IUser }> = ({ user }) => {
+const EntityMenu: FC<{ user: IUser; handleDelete: () => void }> = ({
+  user,
+  handleDelete,
+}) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -56,7 +59,12 @@ const EntityMenu: FC<{ user: IUser }> = ({ user }) => {
             Edit
           </MenuItem>
           <ListDivider />
-          <MenuItem>
+          <MenuItem
+            onClick={(event) => {
+              event.stopPropagation()
+              handleDelete()
+            }}
+          >
             <ListItemDecorator
               sx={{
                 '--ListItemDecorator-size': '1.5rem',

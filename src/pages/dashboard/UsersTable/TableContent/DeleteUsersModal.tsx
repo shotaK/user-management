@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, useState } from 'react'
 import { Box, Button, Modal, ModalClose, Sheet, Typography } from '@mui/joy'
 import binIcon from 'assets/icons/bin-neutral.svg'
 import { usersByIdsSelector } from 'appState/features/users/usersSelectors'
@@ -8,88 +8,98 @@ import { deleteUsersByIds } from 'appState/features/users/usersSlice'
 const DeleteUsersModal: FC<{
   open: boolean
   setOpen: (open: boolean) => void
-  selected: string[],
+  selected: string[]
   setSelected: (selected: string[]) => void
-}> = ({ open, setOpen, selected, setSelected }) => {
-  const dispatch = useAppDispatch();
+  setDeleteModalSnackbarOpen: ({
+    numOfUsers,
+    open,
+  }: {
+    numOfUsers: number
+    open: boolean
+  }) => void
+}> = ({ open, setOpen, selected, setSelected, setDeleteModalSnackbarOpen }) => {
+  const dispatch = useAppDispatch()
+  const numberOfUsers = selected.length
 
   const deleteUsers = () => {
-    setSelected([])
     dispatch(deleteUsersByIds(selected))
     setOpen(false)
+    setDeleteModalSnackbarOpen({ numOfUsers: numberOfUsers, open: true })
+    setSelected([])
   }
 
-  const numberOfUsers = selected.length
 
   const users = useAppSelector((state) => usersByIdsSelector(state, selected))
 
   return (
-    <Modal
-      open={open}
-      onClose={() => setOpen(false)}
-      aria-labelledby='delete-users'
-      aria-describedby='delete-users-modal'
-      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-    >
-      <Sheet
-        variant='outlined'
-        sx={{
-          width: '30rem',
-          borderRadius: 'md',
-          p: 3,
-          boxShadow: 'lg',
-        }}
+    <>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        aria-labelledby='delete-users'
+        aria-describedby='delete-users-modal'
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
-        <Box
+        <Sheet
+          variant='outlined'
           sx={{
-            paddingBottom: 3,
-            mb: 3,
-            borderBottom: '1px solid #D6D4DC',
+            width: '30rem',
+            borderRadius: 'md',
+            p: 3,
+            boxShadow: 'lg',
           }}
         >
-          <ModalClose />
-          <Typography
-            startDecorator={<img src={binIcon} alt='Delete users' />}
-            level='body-md'
-            component='h2'
+          <Box
+            sx={{
+              paddingBottom: 3,
+              mb: 3,
+              borderBottom: '1px solid #D6D4DC',
+            }}
           >
-            Delete: {numberOfUsers} users
-          </Typography>
-        </Box>
+            <ModalClose />
+            <Typography
+              startDecorator={<img src={binIcon} alt='Delete users' />}
+              level='body-md'
+              component='h2'
+            >
+              Delete: {numberOfUsers} users
+            </Typography>
+          </Box>
 
-        <Box>
-          <Typography>Are you sure you want to delete:</Typography>
-          <ul>
-            {users.map((user) => (
-              <li key={user.id}>{user.name}</li>
-            ))}
-          </ul>
-          <Typography color='danger'>
-            NOTE: This action is permanent.
-          </Typography>
-        </Box>
+          <Box>
+            <Typography>Are you sure you want to delete:</Typography>
+            <ul>
+              {users.map((user) => (
+                <li key={user.id}>{user.name}</li>
+              ))}
+            </ul>
+            <Typography color='danger'>
+              NOTE: This action is permanent.
+            </Typography>
+          </Box>
 
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
-          <Button
-            variant='outlined'
-            color='neutral'
-            sx={{ mt: 2 }}
-            onClick={() => setOpen(false)}
-          >
-            Cancel
-          </Button>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+            <Button
+              variant='outlined'
+              color='neutral'
+              sx={{ mt: 2 }}
+              onClick={() => setOpen(false)}
+            >
+              Cancel
+            </Button>
 
-          <Button
-            variant='solid'
-            color='danger'
-            sx={{ mt: 2 }}
-            onClick={deleteUsers}
-          >
-            Yes, delete ({numberOfUsers})
-          </Button>
-        </Box>
-      </Sheet>
-    </Modal>
+            <Button
+              variant='solid'
+              color='danger'
+              sx={{ mt: 2 }}
+              onClick={deleteUsers}
+            >
+              Yes, delete ({numberOfUsers})
+            </Button>
+          </Box>
+        </Sheet>
+      </Modal>
+    </>
   )
 }
 

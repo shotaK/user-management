@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="Users table actions implementation">
+    <list default="true" id="1606c4d8-72f9-41a9-b6b9-602b691ec517" name="Changes" comment="Remove counter api">
+      <change afterPath="$PROJECT_DIR$/public/images/profile/Image-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profile/Image-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profile/Image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profile/no-user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/table/helpers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/Counter.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/Counter.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/counterAPI.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/counterSlice.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/features/counter/counterSlice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/appState/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appState/features/users/usersSeedData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/appState/features/users/usersSeedData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SnackbarHideDuration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snackbarHideDuration/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/UserEditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/UserEditModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/EntityMenu/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/InviteUsersForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/InviteUsers/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeletePromptBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeleteUsersModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/DeleteUsersModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/sort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/sort.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -44,7 +54,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/shota/Projects/TestGround/cordel/src/assets/icons",
+    "last_opened_file_path": "/home/shota/Projects/TestGround/cordel/src/components/table/helpers.ts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,11 +70,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images/profile" />
       <recent name="$PROJECT_DIR$/src/assets/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/pages/dashboard/UsersTable/TableContent" />
       <recent name="$PROJECT_DIR$/src/appState" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/components/table/helpers.ts" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -76,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713788404363</updated>
       <workItem from="1713788405382" duration="15118000" />
-      <workItem from="1713853961263" duration="25420000" />
+      <workItem from="1713853961263" duration="31033000" />
     </task>
     <task id="LOCAL-00001" summary="Users table implementation">
       <option name="closed" value="true" />
@@ -102,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713889140125</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Remove counter api">
+      <option name="closed" value="true" />
+      <created>1713889696102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713889696102</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +136,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Users table implementation" />
     <MESSAGE value="Users table actions implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Users table actions implementation" />
+    <MESSAGE value="Remove counter api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove counter api" />
   </component>
 </project>

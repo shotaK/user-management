@@ -1,4 +1,4 @@
-import { type FC, useMemo } from 'react'
+import { type FC, FormEvent, useMemo } from 'react'
 import FormLabel from '@mui/joy/FormLabel'
 import { Box, Button, IconButton, Input } from '@mui/joy'
 import deleteIcon from 'assets/icons/bin-neutral.svg'
@@ -31,10 +31,12 @@ const InviteUsersForm: FC<{
     setEmailsList(newEmailsList)
   }
 
-  const inviteUsers = () => {
+  const inviteUsers = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
     dispatch(inviteUsersAction({ emails: emailsList }))
-    closeModal()
     handleInviteUsers()
+    closeModal()
   }
 
   const anyEmailEmpty = useMemo(() => {
@@ -42,75 +44,74 @@ const InviteUsersForm: FC<{
   }, [emailsList])
 
   return (
-    <>
-      <form>
-        <Box>
-          <FormLabel sx={{ mb: 2 }}>Email *</FormLabel>
+    <form onSubmit={(event) => inviteUsers(event)}>
+      <Box>
+        <FormLabel sx={{ mb: 2 }}>Email *</FormLabel>
 
-          {emailsList.map((email, index) => (
-            <Box key={index} sx={{ display: 'flex', gap: 2, mb: 2 }}>
-              <Input
-                type='email'
-                value={email}
-                placeholder={`Email ${index + 1}`}
-                onChange={(e) => {
-                  updateEmail(index, e.target.value)
-                }}
-                sx={{ flexGrow: 1 }}
+        {emailsList.map((email, index) => (
+          <Box key={index} sx={{ display: 'flex', gap: 2, mb: 2 }}>
+            <Input
+              type='email'
+              name={`email-${index}`}
+              required
+              value={email}
+              placeholder={`Email ${index + 1}`}
+              onChange={(e) => {
+                updateEmail(index, e.target.value)
+              }}
+              sx={{ flexGrow: 1 }}
+            />
+            <IconButton
+              variant='outlined'
+              color={emailsList.length === 1 ? 'neutral' : 'danger'}
+              disabled={emailsList.length === 1}
+              onClick={() => {
+                removeEmail(index)
+              }}
+            >
+              <img
+                width={20}
+                src={emailsList.length === 1 ? deleteIcon : deleteActiveIcon}
+                alt='Delete'
               />
-              <IconButton
-                variant='outlined'
-                color={emailsList.length === 1 ? 'neutral' : 'danger'}
-                disabled={emailsList.length === 1}
-                onClick={() => {
-                  removeEmail(index)
-                }}
-              >
-                <img
-                  width={20}
-                  src={emailsList.length === 1 ? deleteIcon : deleteActiveIcon}
-                  alt='Delete'
-                />
-              </IconButton>
-            </Box>
-          ))}
-
-          <Box>
-            <Button
-              startDecorator={<img src={addIcon} alt='Add' />}
-              variant='outlined'
-              color='neutral'
-              sx={{ mb: 2 }}
-              onClick={handleAddEmail}
-            >
-              Add more
-            </Button>
+            </IconButton>
           </Box>
+        ))}
 
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
-            <Button
-              variant='outlined'
-              color='neutral'
-              sx={{ mt: 2 }}
-              onClick={closeModal}
-            >
-              Cancel
-            </Button>
-
-            <Button
-              variant='solid'
-              color='primary'
-              disabled={anyEmailEmpty}
-              sx={{ mt: 2 }}
-              onClick={inviteUsers}
-            >
-              Send invites{' '}
-              {emailsList.length > 0 ? `(${emailsList.length})` : ''}
-            </Button>
-          </Box>
+        <Box>
+          <Button
+            startDecorator={<img src={addIcon} alt='Add' />}
+            variant='outlined'
+            color='neutral'
+            sx={{ mb: 2 }}
+            onClick={handleAddEmail}
+          >
+            Add more
+          </Button>
         </Box>
-      </form>
-    </>
+
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+          <Button
+            variant='outlined'
+            color='neutral'
+            sx={{ mt: 2 }}
+            onClick={closeModal}
+          >
+            Cancel
+          </Button>
+
+          <Button
+            variant='solid'
+            color='primary'
+            disabled={anyEmailEmpty}
+            sx={{ mt: 2 }}
+            type="submit"
+          >
+            Send invites {emailsList.length > 0 ? `(${emailsList.length})` : ''}
+          </Button>
+        </Box>
+      </Box>
+    </form>
   )
 }
 

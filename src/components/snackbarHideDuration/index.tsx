@@ -19,7 +19,17 @@ export const SnackbarHideDuration: FC<{
   vertical: 'top' | 'bottom'
   horizontal: 'left' | 'center' | 'right'
   setOpen: (open: boolean) => void
-}> = ({ text, duration, open, color, vertical, horizontal, setOpen }) => {
+  onClose?: () => void
+}> = ({
+  text,
+  duration,
+  open,
+  color,
+  vertical,
+  horizontal,
+  setOpen,
+  onClose,
+}) => {
   const [left, setLeft] = React.useState<undefined | number>()
   const timer = React.useRef<undefined | number>()
 
@@ -64,6 +74,7 @@ export const SnackbarHideDuration: FC<{
       open={open}
       onClose={() => {
         setOpen(false)
+        onClose && onClose()
       }}
     >
       <img src={color === 'success' ? successIcon : errorIcon} alt='Icon' />
